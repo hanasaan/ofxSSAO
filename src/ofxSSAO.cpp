@@ -53,7 +53,7 @@ void ofxSSAO::begin( float nearClip, float farClip		)
 	depthNormalShader.setUniform1f("nearClip", nearClip );
 	depthNormalShader.setUniform1f("farClip", farClip );
 }
-void ofxSSAO::end()
+void ofxSSAO::end(int x, int y, int w, int h)
 {
 	depthNormalShader.end();
 	depthNormalPass.end();
@@ -76,7 +76,7 @@ void ofxSSAO::end()
 	
 	ssaoShader.setUniformTexture("normalDepthTex", depthNormalPass.getTextureReference(1), 1);
 	
-	depthNormalPass.draw(0, 0, ofGetWidth(), ofGetHeight() );
+	depthNormalPass.draw(x,y,w,h);
 	
 	ssaoShader.end();
 	ssaoFbo.end();

@@ -20,7 +20,7 @@ public:
 	
 	void begin( float nearClip, float farClip);
 	
-	void end();
+	void end(int x=0, int y=0, int w=ofGetWidth(), int h=ofGetHeight());
 	
 	void loadShaders();
 	
